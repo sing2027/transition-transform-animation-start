@@ -70,4 +70,84 @@
 	border-radius: 50%;
 	transform: rotate(90deg);
  }
- 
+ /*------------------------------
+ 			Transform			
+-------------------------------*/
+.transform .box{
+	transition: all .5s;
+}
+.transform .b1{
+	transform: rotate(60deg);
+	transform-origin: top left;
+}
+.transform .b1:hover{
+	transform: rotate(0);
+}
+.transform .b2:hover{
+	transform: scale(1.5);
+}
+.transform .b3:hover{
+	transform: skewY(20deg);
+	transform-origin: top left;
+	transform: translate(30px, 30px);
+}
+
+/*--------------------------------
+               Animation----------
+--------------------------------*/
+
+@keyframes changecolor{
+from{
+	background-color: black;
+}
+ to{ 
+		background-color: white;
+	}
+}
+	.animation .b1{
+		animation-name: changecolor;
+		animation-duration: 3s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: 3;
+		animation-delay: 2s;
+	}
+
+@keyframes moveAround{
+	0%,100%{
+		transform: translate(0,0);
+	}
+	25%{
+		transform: translate(200px,0);
+	}
+	50%{
+		transform: translate(200px,200px);}
+	75%{
+		transform: translate(0,200px);
+	}
+}
+
+.animation .b2{
+	animation: moveAround 4s 2s infinite alternate ease-in-out;
+}
+@keyframes flyout{
+	0%{
+		transform: translateX(0) scale(.5) rotate(0);
+	}
+	100%{
+		transform: translateX(600px) scale(1) rotateX(180deg);
+	}
+}
+
+.animation .b3{
+	animation: flyout 3s 1s infinite alternate;
+}
+
+.animation .b4{
+	animation: flyout 3s 1s infinite alternate;
+}
+.animation .b4{
+	animation: flyout 3s 1s infinite alternate cubic-bezier(.48,-0.45,.59,1.35);
+}
+.animation .b4:hover{
+	animation-play-state: paused;
+}
